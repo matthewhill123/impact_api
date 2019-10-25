@@ -1,4 +1,4 @@
-from flask import Flask, Response, request
+from flask import Flask, Response, request, jsonify
 from convert_co2 import convert_to_co2
 from compute_warming import compute_warming_from_co2
 
@@ -15,4 +15,4 @@ def get_warming_from_transport():
 
     warming = compute_warming_from_co2(value_co2)
 
-    return Response(warming, 200)
+    return jsonify(events)
