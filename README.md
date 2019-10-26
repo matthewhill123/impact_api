@@ -1,9 +1,21 @@
 # Open Impact API
 
+## Setup
+
+* Create a virtualenv with Python 3.7: `virtualenv venv -p python3.7`
+* Install dependencies `python install -r requirements.txt`
+
+## Contribute
+
+* There are two protected branches `dev`, `master`
+    * `dev`: latest stable version of code
+    * `master`: automatically gets deployed to production
+* Create a new branch from dev: `git checkout -b <new_branch_name>` 
+* When you're done, open a pull request to `dev`
+* To release on production, create a merge request from `dev` to `master`
+
 ## Usage
 
-* Create a virtualenv
-* Install dependencies `python install -r requirements.txt`
 * Run the app locally `python main.py`
 
 ## Deploy
