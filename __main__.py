@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from endpoints import app
 
 if __name__ == "__main__":
