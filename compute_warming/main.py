@@ -1,4 +1,4 @@
-def compute_warming_from_transport_co2(events_co2):
+def compute_warming_from_transport_co2(humanity_CO2_extrapolated):
     """
     Computes the warming from a list of CO2 over a
     certain period.
@@ -10,16 +10,26 @@ def compute_warming_from_transport_co2(events_co2):
     Returns the warming as float
     """
 
-
-    carbon_equiv_total = sum(events_co2) # for an array of input carbon_equivs
-    if (carbon_equiv_total <= 170308):
-        temp = 1.5
-        carbon_excess = carbon_equiv_total - 88670
-        heating_potential = 6.1E-6
+    if humanity_CO2_extrapolated <= 651.68E12:
+        # temp =< 1.5 --> temp difference = 1.5
+        total_warming_value = 1.5*(humanity_CO2_extrapolated/651.68E12)
+    elif humanity_CO2_extrapolated <= 1251.68E12:
+        # 1.5 =< temp =< 2.0  --> temp difference = 0.5
+        total_warming_value = 0.5*(humanity_CO2_extrapolated - 651.68E12)/(1251.68E12-651.68E12)
     else:
-        temp = 2.0
-        carbon_excess = carbon_equiv_total - 170308
-        heating_potential = 3.7E-6
+        # 2.0 <= temp =< 3.0 --> temp difference = 1
+        total_warming_value = 1.0*(humanity_CO2_extrapolated - 1251.68E12)/(3251.68E12-1251.68E12)
 
-    total_warming_value = (temp + carbon_excess * heating_potential)
     return total_warming_value
+
+
+# import numpy as np
+# import matplotlib.pyplot as plt
+#
+# test_range = np.arange(0,4000,100)
+#
+# test_results = []
+# for i in test_range:
+#     test_results.append(compute_warming_from_transport_co2(i))
+# plt.plot(test_range,test_results)
+# plt.show()
