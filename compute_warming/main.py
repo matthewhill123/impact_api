@@ -20,7 +20,7 @@ def compute_warming_from_transport_co2(humanity_CO2_extrapolated):
         # 2.0 <= temp =< 3.0 --> temp difference = 1
         total_warming_value = 1.0*(humanity_CO2_extrapolated - 1251.68E12)/(3251.68E12-1251.68E12)
 
-   return total_warming_value
+    return total_warming_value
 
 
 # import numpy as np
